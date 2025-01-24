@@ -1,28 +1,35 @@
-# https://leetcode.com/problems/contains-duplicate/
-# 217
-
-# pylint: disable=R
-
-
 class Solution(object):
-    def contains_duplicate(self, nums):
+    # def containsDuplicate(self, nums):
+    #     """
+    #     :type nums: List[int]
+    #     :rtype: bool
+    #     """
+    #
+    #     for i in range(len(nums)):
+    #         for j in range(i + 1, len(nums)):
+    #             if nums[i] == nums[j]:
+    #                 return True
+    #
+    #     return False
+
+    def containsDuplicate(self, nums):
         """
         :type nums: List[int]
         :rtype: bool
         """
 
-        my_dict = {}
+        # define set, lookup time in set is O(1)
+        my_set = set()
 
         for num in nums:
-            if num in my_dict:
+            if num in my_set:
                 return True
-            else:
-                my_dict[num] = 1
+
+            my_set.add(num)
 
         return False
 
 
 solution = Solution()
-print(solution.contains_duplicate([1, 2, 3, 1]))
-print(solution.contains_duplicate([1, 2, 3, 4]))
-print(solution.contains_duplicate([1, 1, 1, 3, 3, 4, 3, 2, 4, 2]))
+print(solution.containsDuplicate([1, 2, 3, 1]))
+print(solution.containsDuplicate([1, 2, 3, 4]))
