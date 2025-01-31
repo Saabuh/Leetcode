@@ -1,7 +1,4 @@
-# https://leetcode.com/problems/group-anagrams/
-# 49
-
-# pylint: disable=R
+# https://leetcode.com/problems/group-anagrams/description/
 
 
 class Solution(object):
@@ -11,32 +8,31 @@ class Solution(object):
         :rtype: List[List[str]]
         """
 
-        # declarations
-        word_dict = {}
-        output = []
+        # create dictionary
+        my_dict = {}
+        # result array
+        result = []
 
-        # for every sorted word, check if it exists in the dictionary, if yes -> add original word as V to sorted word K, if no -> add sorted word as K, original word as V
         for word in strs:
-            sorted_word = "".join(sorted(word))
 
-            if sorted_word in word_dict:
-                word_dict[sorted_word].append(word)
+            # sorts an interable (string), returns a sorted list of iterable, join() joins the iterable into a single string
+            sorted_str = "".join(sorted(word))
+
+            # check if the sorted word exists as a key in the dictionary
+            if sorted_str in my_dict:
+
+                # append str to list
+                my_dict[sorted_str].append(word)
             else:
-                word_list = []
-                word_list.append(word)
-                word_dict[sorted_word] = word_list
 
-        # print out the values as a list
-        for value_list in word_dict.values():
-            output.append(value_list)
+                # make the key the sorted str and the value the str
+                my_dict[sorted_str] = [word]
 
-        return output
+        for value in my_dict.values():
+            result.append(value)
+
+        return result
 
 
 solution = Solution()
-# words = ["eat", "tea", "tan", "ate", "nat", "bat"]
-# words = [""]
-words = ["a"]
-
-print(solution.groupAnagrams(words))
-# output = [["bat"],["nat","tan"],["ate","eat","tea"]]
+print(solution.groupAnagrams(strs=["eat", "tea", "tan", "ate", "nat", "bat"]))
