@@ -2,6 +2,7 @@ from typing import List
 
 
 class Solution:
+    # incomplete
     def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
 
         prev = 30
