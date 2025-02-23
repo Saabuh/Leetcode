@@ -12,13 +12,15 @@ class Solution:
         # if min > max:
         #     return False
         # or
-        if target < matrix[0][0]:
-            return False
 
         half_index = min + (max - min) // 2
         value = matrix[half_index][0]
 
-        ##checks edge case if target is in last row
+        # checks edge case if target is less than smallest number
+        if target < matrix[0][0]:
+            return False
+
+        ##checks edge case if target is in last row or beyond
         if (max - min) == 0:
             return self.searchRows(matrix, target, 0, len(matrix[0]) - 1, half_index)
 
