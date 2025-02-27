@@ -39,6 +39,14 @@ class Solution:
             else:
                 r -= 1
 
+    def twoSum2(self, numbers, target):
+
+        for i in range(len(numbers) - 1):
+            for j in range(i + 1, len(numbers)):
+                if numbers[i] + numbers[j] == target:
+                    return [i + 1, j + 1]
+
 
 solution = Solution()
 print(solution.twoSum([1, 2, 3, 4], 3))
+print(solution.twoSum2([1, 2, 3, 4], 3))
