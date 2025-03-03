@@ -26,6 +26,8 @@ class Solution:
     #         return half_index + self.search(nums[half_index:], target)
 
     def search(self, nums: List[int], target: int) -> int:
+        """function docstring"""
+
         return self.helper(nums, target, 0, len(nums) - 1)
 
     def helper(self, nums: List[int], target: int, min_index: int, max_index: int):
